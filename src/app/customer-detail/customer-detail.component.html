@@ -1,0 +1,198 @@
+<div class='main-content'>
+  <h1>{{title}}</h1>
+  <!-- <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title *ngIf="comment">Title: {{comment.title}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf="comment">
+        <p>ID: {{comment.id}}</p>
+        <p>User ID: {{comment.userId}}</p>
+        <p>Body: {{comment.body}}</p>
+      </mat-card-content>
+    </mat-card>
+    <br>
+    <h1>Related Comments</h1>
+    <form class="form">
+      <mat-form-field class="input-width">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field class="input-width">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field class="input-width">
+        <mat-label>Body</mat-label>
+        <input matInput [(ngModel)]="body" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <button mat-raised-button class="button" (click)="search()">Search</button>
+    </form>
+    <div *ngFor="let comment of tmpComments">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>Name: {{comment.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="comment">
+          <p>Post ID: {{comment.postId}}</p>
+          <p>ID: {{comment.id}}</p>
+          <p>Name: {{comment.name}}</p>
+          <p>Email: {{comment.email}}</p>
+          <p>Body: {{comment.body}}</p>
+        </mat-card-content>
+      </mat-card>
+      <br>
+    </div> -->
+
+  <mat-grid-list cols="2" rowHeight="800px">
+    <mat-grid-tile *ngIf="isEdit">
+      <div style="width: 70%;">
+          <h1>Current</h1>
+
+        <div class="form-group">
+          <label for="fullName">
+            Full Name
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['fullName']" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            Email
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['email']" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <label for="mobileNo">
+            Mobile No
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['mobileNo']" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <label for="identityNo">
+            Identity No
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['identityNo']" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <label for="address">
+            Address
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['address']" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <label for="postalCode">
+            Postal Code
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['postalCode']" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <label for="city">
+            City
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['city']" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <label for="state">
+            State
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['state']" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <label for="country">
+            Country
+          </label>
+          <input class="form-control" type="text" [(ngModel)]="viewData['country']" disabled="true">
+        </div>
+
+      </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+
+      <form style="width: 70%;" [formGroup]="customerDetailForm">
+          <h1>Updated</h1>
+
+        <div class="form-group">
+          <label for="fullName">
+            Full Name
+          </label>
+          <input class="form-control" type="text" formControlName="fullName">
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            Email
+          </label>
+          <input class="form-control" type="text" formControlName="email">
+        </div>
+
+        <div class="form-group">
+          <label for="mobileNo">
+            Mobile No
+          </label>
+          <input class="form-control" type="text" formControlName="mobileNo">
+        </div>
+
+        <div class="form-group">
+          <label for="identityNo">
+            Identity No
+          </label>
+          <input class="form-control" type="text" formControlName="identityNo">
+        </div>
+
+        <div class="form-group">
+          <label for="address">
+            Address
+          </label>
+          <input class="form-control" type="text" formControlName="address">
+        </div>
+
+        <div class="form-group">
+          <label for="postalCode">
+            Postal Code
+          </label>
+          <input class="form-control" type="text" formControlName="postalCode">
+        </div>
+
+        <div class="form-group">
+          <label for="city">
+            City
+          </label>
+          <input class="form-control" type="text" formControlName="city">
+        </div>
+
+        <div class="form-group">
+          <label for="state">
+            State
+          </label>
+          <input class="form-control" type="text" formControlName="state">
+        </div>
+
+        <div class="form-group">
+          <label for="country">
+            Country
+          </label>
+          <input class="form-control" type="text" formControlName="country">
+        </div>
+        <div *ngIf="notPending">
+          <button class="button" (click)="onSubmit(customerDetailForm.value)">Submit</button>
+        </div>
+
+      </form>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div *ngIf="!notPending">
+    <button class="button" (click)="approve()">Approve</button>
+    <button class="button" (click)="reject()">Reject</button>
+  </div>
+
+</div>

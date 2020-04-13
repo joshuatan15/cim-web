@@ -1,0 +1,54 @@
+.main-content {
+   background: grey;
+}
+
+table {
+   width: 100%;
+}
+
+.mat-form-field {
+   font-size: 14px;
+   width: 70%;
+}
+
+td,
+th {
+   width: 25%;
+}
+
+.mat-button {
+   background: grey;
+}
+
+.mat-column-id {
+   width: 5% !important;
+}
+
+.mat-column-tmpFullName {
+   width: 20% !important;
+}
+
+.mat-column-tmpIdentityNo {
+   width: 20% !important;
+}
+
+.mat-column-tmpEmail {
+   width: 20% !important;
+}
+
+.mat-column-pendingStatus {
+   width: 10% !important;
+}
+
+.mat-column-actions {
+   width: 15% !important;
+}
+
+h1 {
+   font-weight: 300;
+}
+
+.create-button {
+   background: white !important;
+   margin-left: 30px;
+}
