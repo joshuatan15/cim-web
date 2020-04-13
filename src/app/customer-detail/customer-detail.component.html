@@ -46,67 +46,67 @@
   <mat-grid-list cols="2" rowHeight="800px">
     <mat-grid-tile *ngIf="isEdit">
       <div style="width: 70%;">
-          <h1>Current</h1>
+        <h1>{{'customerDetailPage.form.current' | translate}}</h1>
 
         <div class="form-group">
           <label for="fullName">
-            Full Name
+            {{'customerDetailPage.fields.fullName' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['fullName']" disabled="true">
         </div>
 
         <div class="form-group">
           <label for="email">
-            Email
+            {{'customerDetailPage.fields.email' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['email']" disabled="true">
         </div>
 
         <div class="form-group">
           <label for="mobileNo">
-            Mobile No
+            {{'customerDetailPage.fields.mobileNo' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['mobileNo']" disabled="true">
         </div>
 
         <div class="form-group">
           <label for="identityNo">
-            Identity No
+            {{'customerDetailPage.fields.idNo' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['identityNo']" disabled="true">
         </div>
 
         <div class="form-group">
           <label for="address">
-            Address
+            {{'customerDetailPage.fields.address' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['address']" disabled="true">
         </div>
 
         <div class="form-group">
           <label for="postalCode">
-            Postal Code
+            {{'customerDetailPage.fields.postalCode' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['postalCode']" disabled="true">
         </div>
 
         <div class="form-group">
           <label for="city">
-            City
+            {{'customerDetailPage.fields.city' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['city']" disabled="true">
         </div>
 
         <div class="form-group">
           <label for="state">
-            State
+            {{'customerDetailPage.fields.state' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['state']" disabled="true">
         </div>
 
         <div class="form-group">
           <label for="country">
-            Country
+            {{'customerDetailPage.fields.country' | translate}}
           </label>
           <input class="form-control" type="text" [(ngModel)]="viewData['country']" disabled="true">
         </div>
@@ -119,80 +119,116 @@
 
 
       <form style="width: 70%;" [formGroup]="customerDetailForm">
-          <h1>Updated</h1>
+        <h1 *ngIf="isEdit">{{'customerDetailPage.form.updated' | translate}}</h1>
 
         <div class="form-group">
           <label for="fullName">
-            Full Name
+            {{'customerDetailPage.fields.fullName' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="fullName">
+        </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'fullName')">
+          {{'customerDetailPage.errorMessage.fullName' | translate}}
         </div>
 
         <div class="form-group">
           <label for="email">
-            Email
+            {{'customerDetailPage.fields.email' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="email">
+        </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'email')">
+          {{'customerDetailPage.errorMessage.email' | translate}}
+
         </div>
 
         <div class="form-group">
           <label for="mobileNo">
-            Mobile No
+            {{'customerDetailPage.fields.mobileNo' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="mobileNo">
+        </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'mobileNo')">
+          {{'customerDetailPage.errorMessage.mobileNo' | translate}}
+
         </div>
 
         <div class="form-group">
           <label for="identityNo">
-            Identity No
+            {{'customerDetailPage.fields.idNo' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="identityNo">
+        </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'identityNo')">
+          {{'customerDetailPage.errorMessage.idNo' | translate}}
+
         </div>
 
         <div class="form-group">
           <label for="address">
-            Address
+            {{'customerDetailPage.fields.address' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="address">
+        </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'address')">
+          {{'customerDetailPage.errorMessage.address' | translate}}
+
         </div>
 
         <div class="form-group">
           <label for="postalCode">
-            Postal Code
+            {{'customerDetailPage.fields.postalCode' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="postalCode">
+        </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'postalCode')">
+          {{'customerDetailPage.errorMessage.postalCode' | translate}}
+
         </div>
 
         <div class="form-group">
           <label for="city">
-            City
+            {{'customerDetailPage.fields.city' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="city">
+        </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'city')">
+          {{'customerDetailPage.errorMessage.city' | translate}}
+
         </div>
 
         <div class="form-group">
           <label for="state">
-            State
+            {{'customerDetailPage.fields.state' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="state">
+        </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'state')">
+          {{'customerDetailPage.errorMessage.state' | translate}}
+
         </div>
 
         <div class="form-group">
           <label for="country">
-            Country
+            {{'customerDetailPage.fields.country' | translate}}
           </label>
           <input class="form-control" type="text" formControlName="country">
         </div>
+        <div class="alert alert-danger" *ngIf="isFieldRequired(customerDetailForm,'country')">
+          {{'customerDetailPage.errorMessage.country' | translate}}
+
+        </div>
+
         <div *ngIf="notPending">
-          <button class="button" (click)="onSubmit(customerDetailForm.value)">Submit</button>
+          <button mat-button class="button" (click)="onSubmit(customerDetailForm.value)">{{'buttons.submit' | translate}}</button>
         </div>
 
       </form>
     </mat-grid-tile>
   </mat-grid-list>
   <div *ngIf="!notPending">
-    <button class="button" (click)="approve()">Approve</button>
-    <button class="button" (click)="reject()">Reject</button>
+    <button mat-button class="button" (click)="approve()">{{'buttons.approve' | translate}}</button>
+    <button mat-button class="button" style="margin-left: 10px;" (click)="reject()">{{'buttons.reject' | translate}}</button>
   </div>
 
 </div>

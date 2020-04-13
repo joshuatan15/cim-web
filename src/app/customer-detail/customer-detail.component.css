@@ -1,16 +1,21 @@
 .card {
-    width: auto;
-  }
-  
-  ::ng-deep .mat-card-header-text {
-    margin: 0px!important;
-  }
-  
-  .button {
-    margin-left: 10px;
-  }
-  
-  .input-width {
-    margin-left: 10px;
-  }
-  
+  width: auto;
+}
+
+::ng-deep .mat-card-header-text {
+  margin: 0px !important;
+}
+
+.input-width {
+  margin-left: 10px;
+}
+
+
+::ng-deep .mat-grid-tile .mat-figure {
+  display: inherit!important;
+}
+
+.button {
+  background: white !important;
+  width: 100px;
+}

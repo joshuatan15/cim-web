@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiHelperService } from '../services/api-services/api-helper.service';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class CustomerDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiHelperService,
+    private translate: TranslateService,
     private formBuilder: FormBuilder) {
 
   }
@@ -51,7 +53,7 @@ export class CustomerDetailComponent implements OnInit {
         this.id = params.id;
         this.customerStatus = params.status;
         await this.getCustomerDetail(params.id);
-        this.title = "View Customer Details"
+        this.title = this.translate.instant('customerDetailPage.title.edit');
         this.isEdit = true;
         if (params.status === 'PENDING_ADD') {
           this.isEdit = false;
@@ -64,7 +66,7 @@ export class CustomerDetailComponent implements OnInit {
         }
       }
       else {
-        this.title = "Create Customer"
+        this.title = this.translate.instant('customerDetailPage.title.create');
         this.isEdit = false;
       }
     });
@@ -102,18 +104,24 @@ export class CustomerDetailComponent implements OnInit {
 
 
   async onSubmit(user) {
-    const obj = {
-      user,
-      referenceNumber: this.referenceNumber,
-      channelId: this.channelId,
-      username: this.username
-    }
-    console.log(obj);
-    if (this.customerStatus === 'PENDING_NONE') {
-      this.updateCustomer(obj);
+    console.log(this.customerDetailForm.valid);
+    if (this.customerDetailForm.valid) {
+      const obj = {
+        user,
+        referenceNumber: this.referenceNumber,
+        channelId: this.channelId,
+        username: this.username
+      }
+      console.log(obj);
+      if (this.customerStatus === 'PENDING_NONE') {
+        this.updateCustomer(obj);
+      }
+      else {
+        this.createCustomer(obj);
+      }
     }
     else {
-      this.createCustomer(obj);
+      alert('Please fill up all the field correctly.');
     }
   }
 
@@ -179,6 +187,14 @@ export class CustomerDetailComponent implements OnInit {
     catch (e) {
       console.log(e);
     }
+  }
+
+  isFieldRequired(form: FormGroup, field: string) {
+    return (
+      form.get(field).invalid &&
+        (form.get(field).dirty || form.get(field).touched) ?
+        form.get(field).errors.required : ''
+    );
   }
 }
 

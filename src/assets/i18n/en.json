@@ -1,5 +1,48 @@
 {
   "customerListing": {
+    "title": "Customer Listing",
+    "columnName": {
+      "id": "ID.",
+      "fullName": "Full Name",
+      "idNo": "ID No.",
+      "email": "Email",
+      "status": "Status",
+      "action": "Actions"
+    },
+    "filter": "Filter",
+    "placeholder": "Ex. Mia"
+  },
+  "customerDetailPage": {
+    "title": {
+      "edit": "View Customer Details",
+      "create": "Create Customer"
+    },
+    "form": {
+      "current": "Current",
+      "updated": "Updated"
+    },
+    "fields": {
+      "fullName": "Full Name*",
+      "email": "Email*",
+      "mobileNo": "Mobile No*",
+      "idNo": "Identity No*",
+      "address": "Address*",
+      "postalCode": "Postal Code*",
+      "city": "City*",
+      "state": "State*",
+      "country": "Country*"
+    },
+    "errorMessage": {
+      "fullName": "Full Name is required.",
+      "email": "Email is required.",
+      "mobileNo": "Mobile No is required.",
+      "idNo": "Identity No is required.",
+      "address": "Address is required.",
+      "postalCode": "Postal Code is required",
+      "city": "City is required",
+      "state": "State is required",
+      "country": "Country is required"
+    }
   },
   "status": {
     "PENDING_ADD": "Pending Add",
@@ -7,37 +50,11 @@
     "PENDING_MODIFY": "Pending Approval"
   },
   "buttons": {
-    "signUp": "Sign Up",
-    "signIn": "Sign In",
-    "accept": "Accept",
-    "cancel": "Cancel",
-    "requestOTP": "Request OTP",
-    "applyDrawdown": "Apply Drawdown",
-    "resendOTP": "Resend OTP",
-    "confirm": "Confirm",
-    "next": "Next",
+    "addCustomer": "Add Customer",
+    "view": "View",
+    "delete": "Delete",
     "submit": "Submit",
-    "back": "Back",
-    "saveAsDraft": "Save As Draft",
-    "import": "Import",
-    "done": "Done",
-    "upload": "Upload",
-    "reset": "Reset",
-    "withdraw": "Withdraw",
-    "apply": "Apply",
-    "okay": "Okay",
-    "yes": "Yes",
-    "no": "No",
-    "drawdownHistory": "Withdrawal History",
-    "repayment": "Payment",
-    "repaymentHistory": "Payment History",
-    "statement": "Statement",
-    "confirm&Submit": "Confirm & Submit",
-    "drawdown": "Apply",
-    "backToDashboard": "Back To Dashboard",
-    "eAgreement": "Sign Agreement",
-    "executeAgreements": "Execute Agreements as Read",
-    "finaliseAgreements": "Finalise Agreements",
-    "pay": "Pay"
+    "approve": "Approve",
+    "reject": "Reject"
   }
 }
